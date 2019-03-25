@@ -89,6 +89,7 @@ class LinkedList:
         self.remove(index)
         return value
 
+
 class _LinkedListNode:
     def __init__(self, value: Any):
         self.value = value
@@ -184,7 +185,7 @@ class _TestLinkedList(unittest.TestCase):
         self.assertEqual(4, self.linked_list.get(3))
         self.assertEqual(6, self.linked_list.get(4))
 
-    def test_from_four_to_zero(self):
+    def test_from_four_to_zero_remove_first(self):
         self.linked_list.add(1)
         self.linked_list.add(2)
         self.linked_list.add(3)
@@ -194,6 +195,34 @@ class _TestLinkedList(unittest.TestCase):
         self.linked_list.remove(0)
         self.assertEqual(2, self.linked_list.size)
         self.linked_list.remove(0)
+        self.assertEqual(1, self.linked_list.size)
+        self.linked_list.remove(0)
+        self.assertEqual(0, self.linked_list.size)
+
+    def test_from_four_to_zero_remove_last(self):
+        self.linked_list.add(1)
+        self.linked_list.add(2)
+        self.linked_list.add(3)
+        self.linked_list.add(4)
+        self.linked_list.remove(self.linked_list.size - 1)
+        self.assertEqual(3, self.linked_list.size)
+        self.linked_list.remove(self.linked_list.size - 1)
+        self.assertEqual(2, self.linked_list.size)
+        self.linked_list.remove(self.linked_list.size - 1)
+        self.assertEqual(1, self.linked_list.size)
+        self.linked_list.remove(0)
+        self.assertEqual(0, self.linked_list.size)
+
+    def test_from_four_to_zero_remove_second(self):
+        self.linked_list.add(1)
+        self.linked_list.add(2)
+        self.linked_list.add(3)
+        self.linked_list.add(4)
+        self.linked_list.remove(1)
+        self.assertEqual(3, self.linked_list.size)
+        self.linked_list.remove(1)
+        self.assertEqual(2, self.linked_list.size)
+        self.linked_list.remove(1)
         self.assertEqual(1, self.linked_list.size)
         self.linked_list.remove(0)
         self.assertEqual(0, self.linked_list.size)
