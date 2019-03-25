@@ -2,6 +2,13 @@ from typing import List
 
 
 def add_two_numbers(list1: List, list2: List) -> List:
+    """
+    https://leetcode.com/problems/add-two-numbers/
+    :param list1: reverse list representing a positive integer
+    :param list2: reverse list representing a positive integer
+    :return: list representing the sum of both values
+    :raise: ValueError when numbers are not positive or lists are empty
+    """
     # Requirement is that numbers should be positive
     if list1[-1] < 0 or list2[-1] < 0 or len(list1) == 0 or len(list2) == 0:
         raise ValueError('numbers should be positive and non empty')
