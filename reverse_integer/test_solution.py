@@ -9,8 +9,9 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(-321, solution.reverse(-123))
         self.assertEqual(21, solution.reverse(120))
         self.assertEqual(0, solution.reverse(1534236469))
-        self.assertEqual(0, solution.reverse(-(2 ** 31)))
+        self.assertEqual(0, solution.reverse(-(2 ** 31) - 1))
         self.assertEqual(0, solution.reverse((2 ** 31)))
+        self.assertEqual(0, solution.reverse((2 ** 31) + 1))
 
 
 if __name__ == '__main__':

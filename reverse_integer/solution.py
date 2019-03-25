@@ -1,4 +1,9 @@
 def reverse(x: int) -> int:
+    """
+    https://leetcode.com/problems/reverse-integer
+    :param x: a value to revert
+    :return: reverse of a 32-bit signed integer
+    """
     # Prepare value
     unsigned_value = (x // 10) if (x % 10 == 0) else x
     unsigned_value = -unsigned_value if x < 0 else unsigned_value
