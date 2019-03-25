@@ -226,3 +226,29 @@ class _TestLinkedList(unittest.TestCase):
         self.assertEqual(1, self.linked_list.size)
         self.linked_list.remove(0)
         self.assertEqual(0, self.linked_list.size)
+
+    def test_pop(self):
+        self.linked_list.add(1)
+        self.assertEqual(1, self.linked_list.pop(0))
+        self.assertEqual(0, self.linked_list.size)
+
+    def test_raises_when_get(self):
+        self.assertRaises(IndexError, self.linked_list.get, -1)
+        self.assertRaises(IndexError, self.linked_list.get, 0)
+        self.assertRaises(IndexError, self.linked_list.get, 1)
+        self.linked_list.add(1)
+        self.assertRaises(IndexError, self.linked_list.get, 1)
+
+    def test_raises_when_remove(self):
+        self.assertRaises(IndexError, self.linked_list.remove, -1)
+        self.assertRaises(IndexError, self.linked_list.remove, 0)
+        self.assertRaises(IndexError, self.linked_list.remove, 1)
+        self.linked_list.add(1)
+        self.assertRaises(IndexError, self.linked_list.remove, 1)
+
+    def test_raises_when_pop(self):
+        self.assertRaises(IndexError, self.linked_list.pop, -1)
+        self.assertRaises(IndexError, self.linked_list.pop, 0)
+        self.assertRaises(IndexError, self.linked_list.pop, 1)
+        self.linked_list.add(1)
+        self.assertRaises(IndexError, self.linked_list.pop, 1)
