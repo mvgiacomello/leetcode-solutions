@@ -22,5 +22,6 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(3, solution.length_longest_substring('pwwkew'))
         self.assertEqual(6, solution.length_longest_substring('mauricio'))
 
+
 if __name__ == '__main__':
     unittest.main()
