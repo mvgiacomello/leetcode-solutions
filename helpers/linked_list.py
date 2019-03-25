@@ -1,4 +1,5 @@
 import unittest
+from typing import Any
 
 
 class LinkedList:
@@ -6,7 +7,10 @@ class LinkedList:
         self.size = 0
         self._first = self._last = None
 
-    def add(self, value):
+    def add(self, value: Any):
+        """
+        :param value: value of append at the end of the linked list
+        """
         new_node = _LinkedListNode(value)
         if self._first is None:
             self._first = new_node
@@ -16,7 +20,11 @@ class LinkedList:
             self._last = new_node
         self.size += 1
 
-    def remove(self, index):
+    def remove(self, index: int):
+        """
+        :param index: index in the linked lest to remove. Starts from 0
+        :raises: IndexError if index provided is below 0 or above size of the linked list
+        """
         if index >= self.size or index < 0:
             raise IndexError('Value of index provided should be between zero and {}'.format(self.size - 1))
 
@@ -50,7 +58,12 @@ class LinkedList:
 
         self.size -= 1
 
-    def get(self, index):
+    def get(self, index: int) -> Any:
+        """
+        :param index: index in the linked lest to retrieve. Starts from 0
+        :return: the value that element
+        :raises: IndexError if index provided is below 0 or above size of the linked list
+        """
         if index >= self.size or index < 0:
             raise IndexError('Value of index provided should be between zero and {}'.format(self.size - 1))
         if self.size == 0:
@@ -67,9 +80,17 @@ class LinkedList:
                 temp += 1
             return node.value
 
+    def pop(self, index) -> Any:
+        """
+        :param index: index in the linked lest to retrieve and remove. Starts from 0
+        :return: the value that element
+        """
+        value = self.get(index)
+        self.remove(index)
+        return value
 
 class _LinkedListNode:
-    def __init__(self, value):
+    def __init__(self, value: Any):
         self.value = value
         self.next = None
 
