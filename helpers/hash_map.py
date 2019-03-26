@@ -65,6 +65,8 @@ class HashMap:
         :param hash: the hashed value of the key
         :return: the position in the list where value should be stored
         """
+        if not isinstance(hash, int):
+            raise ValueError('hash provided should be an integer')
         position = hash % self.size
         return position
 
