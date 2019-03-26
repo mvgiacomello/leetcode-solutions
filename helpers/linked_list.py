@@ -6,11 +6,25 @@ class LinkedList:
         self.size = 0
         self._first = self._last = None
 
+    @property
+    def head(self) -> 'LinkedListNode':
+        """
+        :return: the element at position '0'
+        """
+        return self._first
+
+    @property
+    def tail(self) -> 'LinkedListNode':
+        """
+        :return: the element at position size - 1
+        """
+        return self._last
+
     def add(self, value: Any):
         """
         :param value: value of append at the end of the linked list
         """
-        new_node = _LinkedListNode(value)
+        new_node = LinkedListNode(value)
         if self._first is None:
             self._first = new_node
             self._last = new_node
@@ -89,7 +103,7 @@ class LinkedList:
         return value
 
 
-class _LinkedListNode:
+class LinkedListNode:
     def __init__(self, value: Any):
         self.value = value
         self.next = None

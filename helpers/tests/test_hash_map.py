@@ -3,17 +3,22 @@ import unittest
 from helpers.hash_map import HashMap
 
 
-class _TestHashMap(unittest.TestCase):
+class TestHashMap(unittest.TestCase):
+    def setUp(self):
+        self.small_map = HashMap(size=2)
+
     def test_hash_map(self):
-        map = HashMap(10)
-        map.put('Orange', 1.5)
-        map.put('Apple', 2)
-        map.put('Apple', 4)
-        map.put('Grape', -10)
-        self.assertEqual(1.5, map.get('Orange'))
-        self.assertEqual(4, map.get('Apple'))
-        self.assertEqual(-10, map.get('Grape'))
-        self.assertIsNone(map.get('Banana'))
+        self.small_map.put('Orange', 1.5)
+        self.small_map.put('Apple', 2)
+        self.small_map.put('Apple', 4)
+        self.small_map.put('Apple', 6)
+        self.small_map.put('Grape', -10)
+        self.small_map.put(5, 6)
+        self.assertEqual(1.5, self.small_map.get('Orange'))
+        self.assertEqual(6, self.small_map.get('Apple'))
+        self.assertEqual(-10, self.small_map.get('Grape'))
+        self.assertEqual(6, self.small_map.get(5))
+        self.assertIsNone(self.small_map.get('Banana'))
 
 
 if __name__ == '__main__':
