@@ -1,4 +1,5 @@
-from typing import Any
+import warnings
+from typing import Any, List
 
 
 class LinkedList:
@@ -107,3 +108,38 @@ class LinkedListNode:
     def __init__(self, value: Any):
         self.value = value
         self.next = None
+
+    def set_next(self, next: 'LinkedListNode'):
+        """
+        Useful for writing a list in one line (mostly for LeetCode solutions)
+        :param next: the next element
+        """
+        warnings.warn('Use set_next only for 1:1 solutions of LeetCode')
+        self.next = next
+
+    @classmethod
+    def from_list(cls, list: List) -> 'LinkedListNode':
+        """
+        :param list: a list representing the chain
+        :return: the first node of a chain of LinkedListNode
+        """
+        warnings.warn('Use from_list only for 1:1 solutions of LeetCode')
+        node = LinkedListNode(-1)
+        previous = node
+        for entry in list:
+            previous.next = LinkedListNode(entry)
+            previous = previous.next
+        return node.next
+
+    @classmethod
+    def to_list(cls, node: 'LinkedListNode') -> List:
+        """
+        :param node: the first node of a chain of LinkedListNode
+        :return: a list representing the chain
+        """
+        warnings.warn('Use to_list only for 1:1 solutions of LeetCode')
+        list = []
+        while node is not None:
+            list.append(node.value)
+            node = node.next
+        return list
