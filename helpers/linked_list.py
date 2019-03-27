@@ -117,6 +117,9 @@ class LinkedListNode:
         warnings.warn('Use set_next only for 1:1 solutions of LeetCode')
         self.next = next
 
+    def __eq__(self, other: 'LinkedListNode'):
+        return self.value == other.value and self.next == other.next
+
     @classmethod
     def from_list(cls, list: List) -> 'LinkedListNode':
         """
