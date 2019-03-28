@@ -12,7 +12,7 @@ def min_meeting_rooms(intervals: List[Interval]) -> int:
     if len(intervals) <= 1:
         return len(intervals)
 
-    intervals.sort(key = lambda x: x.end, reverse=True)
+    intervals.sort(key=lambda x: x.end, reverse=True)
     highest = intervals[0].end
 
     # Populate each entry of time with a value
