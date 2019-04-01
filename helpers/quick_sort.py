@@ -1,9 +1,9 @@
 from typing import List
 
 
-class QuickSort:
+class Sort:
 
-    def sort_list(self, list: List[int]) -> List[int]:
+    def recursive_quick_sort(self, list: List[int]) -> List[int]:
         '''
         :param list: to be sorted
         :return: sorted copy of the list
@@ -17,6 +17,6 @@ class QuickSort:
             return []
         else:
             # Put all the elements lower than list[0] to the left and greater to the right, recursively
-            left = self.sort_list([value for value in list[1:] if value < list[0]])
-            right = self.sort_list([value for value in list[1:] if value >= list[0]])
+            left = self.recursive_quick_sort([value for value in list[1:] if value < list[0]])
+            right = self.recursive_quick_sort([value for value in list[1:] if value >= list[0]])
             return left + [list[0]] + right
